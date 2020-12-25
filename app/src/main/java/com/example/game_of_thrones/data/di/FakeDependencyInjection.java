@@ -40,4 +40,9 @@ public class FakeDependencyInjection {
         }
         return gson;
     }
+
+    public static void setContext(Context context) {
+        applicationContext = context;
+    }
+
 }

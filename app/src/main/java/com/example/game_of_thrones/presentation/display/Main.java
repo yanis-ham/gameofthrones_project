@@ -1,11 +1,12 @@
-package com.example.game_of_thrones;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.game_of_thrones.presentation.display;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.game_of_thrones.R;
+
+public class Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
