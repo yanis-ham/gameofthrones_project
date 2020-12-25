@@ -16,7 +16,7 @@ public class GotDisplayRemoteDataSource {
     public Single<List<CharacterInformation>> getCharacterById(int id){
         return this.characterDisplayService.getCharacterById(id);
     }
-    
+
     public Single<List<CharacterInformation>> getAllCharacters(){
         return this.characterDisplayService.getAllCharacters();
     }
