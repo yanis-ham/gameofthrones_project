@@ -7,8 +7,8 @@ import io.reactivex.Single;
 
 public interface GotDisplayRepository {
 
-    Single<List<CharacterInformation>> getOneCharacter(int id);
+    Single<List<CharacterInformation>> getCharacterById(int id);
 
     Single<List<CharacterInformation>> getAllCharacters();
-    
+
 }
