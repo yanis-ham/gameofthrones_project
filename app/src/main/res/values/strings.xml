@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Game Of Thrones</string>
+
+    <string name="gotCharacter_full_name">Fullname :</string>
+    <string name="gotCharacter_first_name">Firstname :</string>
+    <string name="gotCharacter_last_name">Lastname :</string>
+    <string name="gotCharacter_title">Title :</string>
+    <string name="gotCharacter_family">Family :</string>
+
 </resources>
