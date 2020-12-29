@@ -2,12 +2,21 @@ package com.example.game_of_thrones.presentation.adapter;
 
 public class GotCharacterInformationViewItem {
 
+    private String id;
     private String firstName;
     private String lastName;
     private String fullName;
     private String title;
     private String family;
     private String image;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
