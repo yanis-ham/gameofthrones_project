@@ -2,7 +2,7 @@ package com.example.game_of_thrones.presentation.adapter;
 
 public class GotCharacterViewItem {
     private int id;
-    private String fullname;
+    //private String fullname;
     private String image;
 
     public int getId() {
@@ -13,13 +13,13 @@ public class GotCharacterViewItem {
         this.id = id;
     }
 
-    public String getFullname() {
+    /*public String getFullname() {
         return fullname;
-    }
+    }*/
 
-    public void setFullname(String fullname) {
+    /*public void setFullname(String fullname) {
         this.fullname = fullname;
-    }
+    }*/
 
     public String getImage() {
         return image;

@@ -62,6 +62,7 @@ public class ListFragment extends Fragment implements GotActionInterface {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupRecyclerView();
+        registerViewModels();
     }
 
     private void setupRecyclerView() {
