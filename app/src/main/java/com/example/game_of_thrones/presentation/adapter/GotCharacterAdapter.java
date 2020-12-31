@@ -17,14 +17,14 @@ import java.util.List;
 public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapter.GotCharacterViewHolder> {
 
     private GotActionInterface gotActionInterface;
-    private List<GotCharacterInformationViewItem> gotCharacterViewItemList;
+    private List<GotCharacterViewItem> gotCharacterViewItemList;
 
     public GotCharacterAdapter(GotActionInterface gotActionInterface){
         gotCharacterViewItemList = new ArrayList<>();
         this.gotActionInterface = gotActionInterface;
     }
 
-    public void bindViewModels(List<GotCharacterInformationViewItem> gotCharacterViewItemList){
+    public void bindViewModels(List<GotCharacterViewItem> gotCharacterViewItemList){
         this.gotCharacterViewItemList.clear();
         this.gotCharacterViewItemList.addAll(gotCharacterViewItemList);
         notifyDataSetChanged();
@@ -54,7 +54,7 @@ public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapte
         private View gotView;
         private GotActionInterface gotActionInterface;
         private ImageButton gotCharacterImgBtn;
-        private GotCharacterInformationViewItem gotCharacterInformationViewItem;
+        private GotCharacterViewItem gotCharacterInformationViewItem;
 
         public GotCharacterViewHolder(View gotView, GotActionInterface gotActionInterface) {
             super(gotView);
@@ -68,12 +68,12 @@ public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapte
             gotCharacterImgBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    gotActionInterface.onClick(Integer.parseInt(gotCharacterInformationViewItem.getId()));
+                    gotActionInterface.onClick(gotCharacterInformationViewItem.getId());
                 }
             });
         }
 
-        public void bind(GotCharacterInformationViewItem gotCharacterInformationViewItem){
+        public void bind(GotCharacterViewItem gotCharacterInformationViewItem){
             this.gotCharacterInformationViewItem = gotCharacterInformationViewItem;
             Glide.with(gotView)
                     .load(gotCharacterInformationViewItem.getImage())

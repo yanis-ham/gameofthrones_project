@@ -5,20 +5,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.game_of_thrones.R;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 public class Main extends AppCompatActivity {
 
-    private ViewPager2 viewPager;
-    private FragmentStateAdapter pagerAdapter;
-
-    private ListFragment listFrag1 = new ListFragment();
-    private ListFragment listFrag2 = new ListFragment();
+    private ViewPager viewPager;
+    //private FragmentStateAdapter pagerAdapter;
 
 
     @Override
@@ -28,32 +23,36 @@ public class Main extends AppCompatActivity {
 
         setupViewPagerAndTabs();
 
-        TabLayout tabLayout = findViewById(R.id.tablayout);
+        /*TabLayout tabLayout = findViewById(R.id.tabs);
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> tab.setText("FRAGMENT " + (position + 1))
-        ).attach();
+        ).attach();*/
     }
 
     private void setupViewPagerAndTabs() {
-        viewPager = findViewById(R.id.tab_viewpager);
+        viewPager = findViewById(R.id.view_pager);
 
-        pagerAdapter = new FragmentStateAdapter(this) {
+        final ListFragment listFrag1 = ListFragment.newInstance();
+        final ListFragment listFrag2 = ListFragment.newInstance();
+
+        //pagerAdapter = new FragmentStateAdapter(this) {
+        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public int getCount() {
+                return 2;
+            }
+
             @NonNull
             @Override
-            public Fragment createFragment(int position) {
-                if(position == 0){
+            public Fragment getItem(int position) {
+                if (position == 0) {
                     return listFrag1;
-                }else{
+                } else {
                     return listFrag2;
                 }
             }
 
-            @Override
-            public int getItemCount() {
-                return 2;
-            }
-        };
-
-        viewPager.setAdapter(pagerAdapter);
+            //viewPager.setAdapter(pagerAdapter);
+        });
     }
 }

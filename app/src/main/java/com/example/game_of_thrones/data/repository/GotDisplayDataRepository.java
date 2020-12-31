@@ -6,7 +6,7 @@ import com.example.game_of_thrones.data.repository.remote.GotDisplayRemoteDataSo
 import java.util.List;
 import io.reactivex.Single;
 
-public class GotDisplayDataRepository {
+public class GotDisplayDataRepository implements GotDisplayRepository {
     GotDisplayRemoteDataSource gotDisplayRemoteDataSource;
 
     public GotDisplayDataRepository(GotDisplayRemoteDataSource gotDisplayRemoteDataSource){

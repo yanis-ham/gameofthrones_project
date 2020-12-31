@@ -11,7 +11,7 @@ public class CharacterToGotViewModelMapper {
     public GotCharacterViewItem map(CharacterInformation ci){
         GotCharacterViewItem gotCharacterViewItem = new GotCharacterViewItem();
         gotCharacterViewItem.setId(ci.getId());
-        gotCharacterViewItem.setImg(ci.getImage());
+        gotCharacterViewItem.setImage(ci.getImage());
         return gotCharacterViewItem;
     }
 

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class CharacterInformation {
 
     @SerializedName("id")
-    private String id;
+    private int id;
 
     @SerializedName("firstname")
     private String firstName;
@@ -25,7 +25,7 @@ public class CharacterInformation {
     @SerializedName("image")
     private String image;
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
     public String getFirstName() {
         return firstName;

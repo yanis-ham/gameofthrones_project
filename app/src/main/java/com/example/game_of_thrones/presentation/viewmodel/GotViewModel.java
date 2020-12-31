@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.game_of_thrones.data.api.model.CharacterInformation;
 import com.example.game_of_thrones.data.repository.GotDisplayRepository;
+import com.example.game_of_thrones.presentation.adapter.GotCharacterViewItem;
+import com.example.game_of_thrones.presentation.mapper.CharacterToGotViewModelMapper;
 
 import java.util.List;
 
@@ -17,12 +19,22 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class GotViewModel extends ViewModel{
+
+    private CharacterToGotViewModelMapper characterToGotViewModelMapper;
     private GotDisplayRepository gotDisplayRepository;
     private CompositeDisposable compositeDisposable;
+
 
     public GotViewModel(GotDisplayRepository gotDisplayRepository){
         this.gotDisplayRepository = gotDisplayRepository;
         this.compositeDisposable = new CompositeDisposable();
+        this.characterToGotViewModelMapper = new CharacterToGotViewModelMapper();
+    }
+
+    private MutableLiveData<List<GotCharacterViewItem>> listCharacters = new MutableLiveData<>();
+
+    public MutableLiveData<List<GotCharacterViewItem>> getListCharacters() {
+        return listCharacters;
     }
 
     public void getCharacterById(int id){
@@ -52,9 +64,8 @@ public class GotViewModel extends ViewModel{
                 .subscribeWith(new DisposableSingleObserver<List<CharacterInformation>>() {
 
                     @Override
-                    public void onSuccess(@NonNull List<CharacterInformation> characterInformations) {
-                        //A compléter
-                    }
+                    public void onSuccess(@NonNull List<CharacterInformation> listCharacterInformation) {
+                        listCharacters.setValue(characterToGotViewModelMapper.map(listCharacterInformation));                    }
 
                     @Override
                     public void onError(Throwable e) {

@@ -1,15 +1,15 @@
 package com.example.game_of_thrones.presentation.adapter;
 
 public class GotCharacterViewItem {
-    private String id;
+    private int id;
     private String fullname;
-    private String img;
+    private String image;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -21,11 +21,11 @@ public class GotCharacterViewItem {
         this.fullname = fullname;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
