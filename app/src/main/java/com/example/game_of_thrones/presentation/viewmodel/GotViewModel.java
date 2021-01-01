@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.game_of_thrones.data.api.model.CharacterInformation;
 import com.example.game_of_thrones.data.repository.GotDisplayRepository;
+import com.example.game_of_thrones.presentation.adapter.GotCharacterInformationViewItem;
 import com.example.game_of_thrones.presentation.adapter.GotCharacterViewItem;
+import com.example.game_of_thrones.presentation.mapper.CharacterInformationToGotCharacterViewItem;
 import com.example.game_of_thrones.presentation.mapper.CharacterToGotViewModelMapper;
 
 import java.util.List;
@@ -21,6 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 public class GotViewModel extends ViewModel{
 
     private CharacterToGotViewModelMapper characterToGotViewModelMapper;
+    private CharacterInformationToGotCharacterViewItem characterInformationToGotCharacterViewItem;
     private GotDisplayRepository gotDisplayRepository;
     private CompositeDisposable compositeDisposable;
 
@@ -29,12 +32,19 @@ public class GotViewModel extends ViewModel{
         this.gotDisplayRepository = gotDisplayRepository;
         this.compositeDisposable = new CompositeDisposable();
         this.characterToGotViewModelMapper = new CharacterToGotViewModelMapper();
+        this.characterInformationToGotCharacterViewItem = new CharacterInformationToGotCharacterViewItem();
     }
 
     private MutableLiveData<List<GotCharacterViewItem>> listCharacters = new MutableLiveData<>();
 
+    private MutableLiveData<GotCharacterInformationViewItem> charactersInfo = new MutableLiveData<>();
+
     public MutableLiveData<List<GotCharacterViewItem>> getListCharacters() {
         return listCharacters;
+    }
+
+    public MutableLiveData<GotCharacterInformationViewItem> getCharactersInfo() {
+        return charactersInfo;
     }
 
     public void getCharacterById(int id){
@@ -42,16 +52,16 @@ public class GotViewModel extends ViewModel{
         compositeDisposable.add(gotDisplayRepository.getCharacterById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<CharacterInformation>>(){
+                .subscribeWith(new DisposableSingleObserver<CharacterInformation>(){
 
                     @Override
-                    public void onSuccess(@NonNull List<CharacterInformation> characterInformations) {
-                        //A compléter
+                    public void onSuccess(@NonNull CharacterInformation characterInformation) {
+                        charactersInfo.setValue(characterInformationToGotCharacterViewItem.map(characterInformation));
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        //A compléter
+                        System.out.println(e.toString());
                     }
                 }));
     }

@@ -1,5 +1,6 @@
 package com.example.game_of_thrones.presentation.display;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,6 +87,9 @@ public class ListFragment extends Fragment implements GotActionInterface {
 
     @Override
     public void onClick(int id) {
-
+        Intent i = new Intent(getActivity(), CharacterInformationActivity.class);
+        i.putExtra("Id", id);
+        charactersViewModel.getCharacterById(id);
+        startActivity(i);
     }
 }

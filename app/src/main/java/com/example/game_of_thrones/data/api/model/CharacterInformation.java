@@ -7,13 +7,13 @@ public class CharacterInformation {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("firstname")
+    @SerializedName("firstName")
     private String firstName;
 
-    @SerializedName("lastname")
+    @SerializedName("lastName")
     private String lastName;
 
-    @SerializedName("fullname")
+    @SerializedName("fullName")
     private String fullName;
 
     @SerializedName("title")

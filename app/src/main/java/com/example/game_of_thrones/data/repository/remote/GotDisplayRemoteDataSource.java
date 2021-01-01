@@ -13,7 +13,7 @@ public class GotDisplayRemoteDataSource {
         this.characterDisplayService = characterDisplayService;
     }
 
-    public Single<List<CharacterInformation>> getCharacterById(int id){
+    public Single<CharacterInformation> getCharacterById(int id){
         return this.characterDisplayService.getCharacterById(id);
     }
 

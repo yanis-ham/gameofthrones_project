@@ -13,7 +13,7 @@ public class GotDisplayDataRepository implements GotDisplayRepository {
         this.gotDisplayRemoteDataSource = gotDisplayRemoteDataSource;
     }
 
-    public Single<List<CharacterInformation>> getCharacterById(int id){
+    public Single<CharacterInformation> getCharacterById(int id){
         return this.gotDisplayRemoteDataSource.getCharacterById(id);
     }
 

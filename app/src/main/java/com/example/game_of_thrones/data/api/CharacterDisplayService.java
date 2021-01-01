@@ -12,5 +12,5 @@ public interface CharacterDisplayService {
     Single<List<CharacterInformation>> getAllCharacters();
 
     @GET("Characters/{id}")
-    Single<List<CharacterInformation>> getCharacterById(@Path("id") int id);
+    Single<CharacterInformation> getCharacterById(@Path("id") int id);
 }
