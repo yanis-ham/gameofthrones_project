@@ -9,6 +9,7 @@ public class GotCharacterInformationViewItem {
     private String title;
     private String family;
     private String image;
+    private String imageUrl;
 
     public String getId() {
         return id;
@@ -64,5 +65,13 @@ public class GotCharacterInformationViewItem {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

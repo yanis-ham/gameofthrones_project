@@ -25,6 +25,9 @@ public class CharacterInformation {
     @SerializedName("image")
     private String image;
 
+    @SerializedName("imageUrl")
+    private String imageUrl;
+
     public int getId() { return id; }
 
     public String getFirstName() {
@@ -51,4 +54,7 @@ public class CharacterInformation {
         return image;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }
