@@ -2,7 +2,7 @@ package com.example.game_of_thrones.data.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CharacterInformation {
+public class GotCharacterInformation {
 
     @SerializedName("id")
     private int id;

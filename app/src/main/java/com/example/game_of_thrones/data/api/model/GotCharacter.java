@@ -1,14 +1,14 @@
 package com.example.game_of_thrones.data.api.model;
 
-public class Character {
+public class GotCharacter {
     private int id;
-    private CharacterInformation characterInfo;
+    private GotCharacterInformation characterInfo;
 
     public int getId() {
         return id;
     }
 
-    public CharacterInformation getCharacterInfo() {
+    public GotCharacterInformation getCharacterInfo() {
         return characterInfo;
     }
 }

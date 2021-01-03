@@ -1,13 +1,13 @@
 package com.example.game_of_thrones.presentation.display.list.mapper;
 
-import com.example.game_of_thrones.data.api.model.CharacterInformation;
+import com.example.game_of_thrones.data.api.model.GotCharacterInformation;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterInformationToGotCharacterViewItem {
-    public GotCharacterInformationViewItem map(CharacterInformation ci){
+    public GotCharacterInformationViewItem map(GotCharacterInformation ci){
         GotCharacterInformationViewItem gotCharacterInformationViewItem = new GotCharacterInformationViewItem();
 
         gotCharacterInformationViewItem.setFullName(ci.getFullName());
@@ -20,10 +20,10 @@ public class CharacterInformationToGotCharacterViewItem {
         return gotCharacterInformationViewItem;
     }
 
-    public List<GotCharacterInformationViewItem> map(List<CharacterInformation> listCi){
+    public List<GotCharacterInformationViewItem> map(List<GotCharacterInformation> listCi){
         List<GotCharacterInformationViewItem> gotCharacterInformationViewItemsList = new ArrayList<>();
         if(listCi != null) {
-            for (CharacterInformation c : listCi) {
+            for (GotCharacterInformation c : listCi) {
                 gotCharacterInformationViewItemsList.add(map(c));
             }
         }

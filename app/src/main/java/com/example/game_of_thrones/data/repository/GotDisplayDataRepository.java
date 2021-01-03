@@ -1,6 +1,6 @@
 package com.example.game_of_thrones.data.repository;
 
-import com.example.game_of_thrones.data.api.model.CharacterInformation;
+import com.example.game_of_thrones.data.api.model.GotCharacterInformation;
 import com.example.game_of_thrones.data.repository.remote.GotDisplayRemoteDataSource;
 
 import java.util.List;
@@ -13,11 +13,11 @@ public class GotDisplayDataRepository implements GotDisplayRepository {
         this.gotDisplayRemoteDataSource = gotDisplayRemoteDataSource;
     }
 
-    public Single<CharacterInformation> getCharacterById(int id){
+    public Single<GotCharacterInformation> getCharacterById(int id){
         return this.gotDisplayRemoteDataSource.getCharacterById(id);
     }
 
-    public Single<List<CharacterInformation>> getAllCharacters(){
+    public Single<List<GotCharacterInformation>> getAllCharacters(){
         return this.gotDisplayRemoteDataSource.getAllCharacters();
     }
 }

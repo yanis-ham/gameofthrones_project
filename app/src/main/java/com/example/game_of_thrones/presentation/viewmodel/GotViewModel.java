@@ -3,7 +3,7 @@ package com.example.game_of_thrones.presentation.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.game_of_thrones.data.api.model.CharacterInformation;
+import com.example.game_of_thrones.data.api.model.GotCharacterInformation;
 import com.example.game_of_thrones.data.repository.GotDisplayRepository;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
@@ -50,11 +50,11 @@ public class GotViewModel extends ViewModel{
         compositeDisposable.add(gotDisplayRepository.getCharacterById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<CharacterInformation>(){
+                .subscribeWith(new DisposableSingleObserver<GotCharacterInformation>(){
 
                     @Override
-                    public void onSuccess(@NonNull CharacterInformation characterInformation) {
-                        charactersInfo.setValue(characterInformationToGotCharacterViewItem.map(characterInformation));
+                    public void onSuccess(@NonNull GotCharacterInformation gotCharacterInformation) {
+                        charactersInfo.setValue(characterInformationToGotCharacterViewItem.map(gotCharacterInformation));
                     }
 
                     @Override
@@ -69,11 +69,11 @@ public class GotViewModel extends ViewModel{
         compositeDisposable.add(gotDisplayRepository.getAllCharacters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<CharacterInformation>>() {
+                .subscribeWith(new DisposableSingleObserver<List<GotCharacterInformation>>() {
 
                     @Override
-                    public void onSuccess(@NonNull List<CharacterInformation> listCharacterInformation) {
-                        listCharacters.setValue(characterToGotViewModelMapper.map(listCharacterInformation));                    }
+                    public void onSuccess(@NonNull List<GotCharacterInformation> listGotCharacterInformation) {
+                        listCharacters.setValue(characterToGotViewModelMapper.map(listGotCharacterInformation));                    }
 
                     @Override
                     public void onError(Throwable e) {
