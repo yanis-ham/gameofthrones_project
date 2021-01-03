@@ -1,4 +1,4 @@
-package com.example.game_of_thrones.presentation.adapter;
+package com.example.game_of_thrones.presentation.display.list.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.game_of_thrones.presentation.display;
+package com.example.game_of_thrones.presentation.display.list.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,16 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.game_of_thrones.R;
 import com.example.game_of_thrones.data.di.FakeDependencyInjection;
-import com.example.game_of_thrones.presentation.adapter.GotActionInterface;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterAdapter;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterViewItem;
+import com.example.game_of_thrones.presentation.display.CharacterInformationActivity;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotActionInterface;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterAdapter;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
 import com.example.game_of_thrones.presentation.viewmodel.GotViewModel;
 
 import java.util.List;
 
 public class ListFragment extends Fragment implements GotActionInterface {
 
-    private RecyclerView.LayoutManager layoutManager;
     private RecyclerView recyclerView;
     private GotCharacterAdapter gotCharacterAdapter;
     private GotViewModel charactersViewModel;

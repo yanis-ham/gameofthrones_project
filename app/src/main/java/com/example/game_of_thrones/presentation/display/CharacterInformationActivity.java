@@ -2,11 +2,9 @@ package com.example.game_of_thrones.presentation.display;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,10 +12,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.example.game_of_thrones.R;
 import com.example.game_of_thrones.data.di.FakeDependencyInjection;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterInformationViewItem;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
 import com.example.game_of_thrones.presentation.viewmodel.GotViewModel;
-
-import java.util.List;
 
 public class CharacterInformationActivity extends AppCompatActivity {
     private int id;

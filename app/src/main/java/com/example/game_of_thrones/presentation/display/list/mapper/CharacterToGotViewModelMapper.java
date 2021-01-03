@@ -1,7 +1,7 @@
-package com.example.game_of_thrones.presentation.mapper;
+package com.example.game_of_thrones.presentation.display.list.mapper;
 
 import com.example.game_of_thrones.data.api.model.CharacterInformation;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterViewItem;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
 
 import java.util.ArrayList;
 import java.util.List;

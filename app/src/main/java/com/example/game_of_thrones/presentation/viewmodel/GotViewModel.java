@@ -1,16 +1,14 @@
 package com.example.game_of_thrones.presentation.viewmodel;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.game_of_thrones.data.api.model.CharacterInformation;
 import com.example.game_of_thrones.data.repository.GotDisplayRepository;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterInformationViewItem;
-import com.example.game_of_thrones.presentation.adapter.GotCharacterViewItem;
-import com.example.game_of_thrones.presentation.mapper.CharacterInformationToGotCharacterViewItem;
-import com.example.game_of_thrones.presentation.mapper.CharacterToGotViewModelMapper;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
+import com.example.game_of_thrones.presentation.display.list.mapper.CharacterInformationToGotCharacterViewItem;
+import com.example.game_of_thrones.presentation.display.list.mapper.CharacterToGotViewModelMapper;
 
 import java.util.List;
 

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.game_of_thrones.R;
+import com.example.game_of_thrones.presentation.display.list.fragment.ListFragment;
 
 public class Main extends AppCompatActivity {
 
