@@ -20,6 +20,10 @@ public class ViewModelFactory implements ViewModelProvider.Factory{
         if (modelClass.isAssignableFrom(GotCharacterViewModel.class)) {
             return (T) new GotCharacterViewModel(gotCharacterDisplayRepository);
         }
+        else { if(modelClass.isAssignableFrom(FavoriteGotCharacterViewModel.class)){
+                return (T) new FavoriteGotCharacterViewModel(gotCharacterDisplayRepository);
+            }
+        }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }
 }

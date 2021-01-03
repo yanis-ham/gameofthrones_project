@@ -13,15 +13,16 @@
         android:background="@color/white"
         >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/gotCharacter_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
              />
+
 
         <TextView
             android:id="@+id/favoriteGotCharacter_fullname"
@@ -36,6 +37,7 @@
             android:id="@+id/remove_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -25,6 +25,7 @@ import java.util.List;
 
 public class ListFragment extends Fragment implements GotCharacterActionInterface {
 
+    public static final String name = "Personnages";
     private RecyclerView recyclerView;
     private GotCharacterAdapter gotCharacterAdapter;
     private GotCharacterViewModel charactersViewModel;

@@ -20,6 +20,7 @@ import com.example.game_of_thrones.presentation.viewmodel.FavoriteGotCharacterVi
 
 public class FavoriteGotCharacterFragment extends Fragment implements FavoriteGotCharacterActionInterface {
 
+    public static final String name = "Favoris";
     private FavoriteGotCharacterViewModel favoriteGotCharacterViewModel;
     private FavoriteGotCharacterAdapter favoriteGotCharacterAdapter;
     private View favoriteView;

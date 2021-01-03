@@ -10,6 +10,7 @@ public class GotCharacterEntityToViewItemMapper {
 
     public FavoriteGotCharacterViewItem map(GotCharacterEntity gotCharacterEntity){
         FavoriteGotCharacterViewItem favoriteGotCharacterViewItem = new FavoriteGotCharacterViewItem();
+
         favoriteGotCharacterViewItem.setId(gotCharacterEntity.getId());
         favoriteGotCharacterViewItem.setFullname(gotCharacterEntity.getFullname());
         favoriteGotCharacterViewItem.setImageUrl(gotCharacterEntity.getImageUrl());

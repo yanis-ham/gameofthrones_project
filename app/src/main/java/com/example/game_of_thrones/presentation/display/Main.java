@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.game_of_thrones.R;
+import com.example.game_of_thrones.presentation.display.favorite.fragment.FavoriteGotCharacterFragment;
 import com.example.game_of_thrones.presentation.display.list.fragment.ListFragment;
 
 public class Main extends AppCompatActivity {
@@ -33,8 +34,8 @@ public class Main extends AppCompatActivity {
     private void setupViewPagerAndTabs() {
         viewPager = findViewById(R.id.view_pager);
 
-        final ListFragment listFrag1 = ListFragment.newInstance();
-        final ListFragment listFrag2 = ListFragment.newInstance();
+        final ListFragment listFrag = ListFragment.newInstance();
+        final FavoriteGotCharacterFragment favoriteFrag = FavoriteGotCharacterFragment.newInstance();
 
         //pagerAdapter = new FragmentStateAdapter(this) {
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -47,10 +48,18 @@ public class Main extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 if (position == 0) {
-                    return listFrag1;
+                    return listFrag;
                 } else {
-                    return listFrag2;
+                    return favoriteFrag;
                 }
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                if (position == 0) {
+                    return listFrag.name;
+                }
+                return favoriteFrag.name;
             }
 
             //viewPager.setAdapter(pagerAdapter);

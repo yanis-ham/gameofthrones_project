@@ -56,7 +56,7 @@ public class FavoriteGotCharacterAdapter extends RecyclerView.Adapter<FavoriteGo
     public static class FavoriteGotCharacterViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView fullname_textView;
-        private final ImageView gotCharacter_image;
+        private final ImageButton gotCharacter_image;
         private final ImageButton remove_button;
         private final View view;
         private final FavoriteGotCharacterActionInterface favoriteGotCharacterActionInterface;
@@ -65,8 +65,8 @@ public class FavoriteGotCharacterAdapter extends RecyclerView.Adapter<FavoriteGo
         public FavoriteGotCharacterViewHolder(@NonNull View itemView, final FavoriteGotCharacterActionInterface favoriteGotCharacterActionInterface) {
             super(itemView);
             this.view = itemView;
-            fullname_textView =view.findViewById(R.id.gotCharacter_full_name);
-            gotCharacter_image = view.findViewById(R.id.gotCharacter_img);
+            fullname_textView =view.findViewById(R.id.favoriteGotCharacter_fullname);
+            gotCharacter_image = view.findViewById(R.id.gotCharacter_imageview);
             remove_button = view.findViewById(R.id.remove_icon);
             this.favoriteGotCharacterActionInterface = favoriteGotCharacterActionInterface;
             setupListeners();
@@ -86,7 +86,7 @@ public class FavoriteGotCharacterAdapter extends RecyclerView.Adapter<FavoriteGo
             this.fullname_textView.setText(favoriteGotCharacterViewItem.getFullname());
             Glide.with(view)
                     .load(favoriteGotCharacterViewItem.getImageUrl())
-                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .centerCrop()
                     .into(gotCharacter_image);
         }
     }
