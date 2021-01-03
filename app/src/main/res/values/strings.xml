@@ -6,5 +6,6 @@
     <string name="gotCharacter_last_name">Lastname :</string>
     <string name="gotCharacter_title">Title :</string>
     <string name="gotCharacter_family">Family :</string>
+    <string name="favoriteGotCharacter_delete">Remove from favoriteButton :</string>
 
 </resources>
