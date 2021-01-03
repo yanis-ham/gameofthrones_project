@@ -45,6 +45,7 @@ public class FavoriteGotCharacterAdapter extends RecyclerView.Adapter<FavoriteGo
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteGotCharacterViewHolder holder, int position) {
+        Log.i("YOOOOO", favoriteGotCharacterViewItemsList.get(position).getImageUrl());
         holder.bind(favoriteGotCharacterViewItemsList.get(position));
     }
 
@@ -85,7 +86,7 @@ public class FavoriteGotCharacterAdapter extends RecyclerView.Adapter<FavoriteGo
             this.favoriteGotCharacterViewItem = favoriteGotCharacterViewItem;
             this.fullname_textView.setText(favoriteGotCharacterViewItem.getFullname());
             Glide.with(view)
-                    .load(favoriteGotCharacterViewItem.getImageUrl())
+                    .load("https://thronesapi.com/assets/images/"+favoriteGotCharacterViewItem.getImageUrl())
                     .centerCrop()
                     .into(gotCharacter_image);
         }

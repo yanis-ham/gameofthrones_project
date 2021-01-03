@@ -18,6 +18,7 @@ public class GotCharacterEntity {
     private String family;
     private String imageUrl;
 
+
     public int getId() {
         return id;
     }
@@ -70,7 +71,21 @@ public class GotCharacterEntity {
         return imageUrl;
     }
 
+
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "GotCharacterEntity{" +
+                "id=" + id +
+                ", fullname='" + fullname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", title='" + title + '\'' +
+                ", family='" + family + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
     }
 }
