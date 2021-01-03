@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.game_of_thrones.data.api.model.GotCharacterInformation;
-import com.example.game_of_thrones.data.repository.GotDisplayRepository;
+import com.example.game_of_thrones.data.repository.GotCharacterDisplayRepository;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
 import com.example.game_of_thrones.presentation.display.list.mapper.CharacterInformationToGotCharacterViewItem;
@@ -22,12 +22,12 @@ public class GotViewModel extends ViewModel{
 
     private CharacterToGotViewModelMapper characterToGotViewModelMapper;
     private CharacterInformationToGotCharacterViewItem characterInformationToGotCharacterViewItem;
-    private GotDisplayRepository gotDisplayRepository;
+    private GotCharacterDisplayRepository gotCharacterDisplayRepository;
     private CompositeDisposable compositeDisposable;
 
 
-    public GotViewModel(GotDisplayRepository gotDisplayRepository){
-        this.gotDisplayRepository = gotDisplayRepository;
+    public GotViewModel(GotCharacterDisplayRepository gotCharacterDisplayRepository){
+        this.gotCharacterDisplayRepository = gotCharacterDisplayRepository;
         this.compositeDisposable = new CompositeDisposable();
         this.characterToGotViewModelMapper = new CharacterToGotViewModelMapper();
         this.characterInformationToGotCharacterViewItem = new CharacterInformationToGotCharacterViewItem();
@@ -47,7 +47,7 @@ public class GotViewModel extends ViewModel{
 
     public void getCharacterById(int id){
         compositeDisposable.clear();
-        compositeDisposable.add(gotDisplayRepository.getCharacterById(id)
+        compositeDisposable.add(gotCharacterDisplayRepository.getCharacterById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<GotCharacterInformation>(){
@@ -66,7 +66,7 @@ public class GotViewModel extends ViewModel{
 
     public void getAllCharacters(){
         compositeDisposable.clear();
-        compositeDisposable.add(gotDisplayRepository.getAllCharacters()
+        compositeDisposable.add(gotCharacterDisplayRepository.getAllCharacters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<List<GotCharacterInformation>>() {

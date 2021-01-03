@@ -7,7 +7,7 @@ import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface CharacterDisplayService {
+public interface GotCharacterDisplayService {
     @GET("Characters")
     Single<List<GotCharacterInformation>> getAllCharacters();
 
