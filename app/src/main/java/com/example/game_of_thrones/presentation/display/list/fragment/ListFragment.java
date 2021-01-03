@@ -16,18 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.game_of_thrones.R;
 import com.example.game_of_thrones.data.di.FakeDependencyInjection;
 import com.example.game_of_thrones.presentation.display.CharacterInformationActivity;
-import com.example.game_of_thrones.presentation.display.list.adapter.GotActionInterface;
+import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterActionInterface;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterAdapter;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterViewItem;
-import com.example.game_of_thrones.presentation.viewmodel.GotViewModel;
+import com.example.game_of_thrones.presentation.viewmodel.GotCharacterViewModel;
 
 import java.util.List;
 
-public class ListFragment extends Fragment implements GotActionInterface {
+public class ListFragment extends Fragment implements GotCharacterActionInterface {
 
     private RecyclerView recyclerView;
     private GotCharacterAdapter gotCharacterAdapter;
-    private GotViewModel charactersViewModel;
+    private GotCharacterViewModel charactersViewModel;
     private View gotView;
 
 
@@ -74,7 +74,7 @@ public class ListFragment extends Fragment implements GotActionInterface {
     }
 
     private void registerViewModels() {
-        charactersViewModel = new ViewModelProvider(requireActivity(), FakeDependencyInjection.getViewModelFactory()).get(GotViewModel.class);
+        charactersViewModel = new ViewModelProvider(requireActivity(), FakeDependencyInjection.getViewModelFactory()).get(GotCharacterViewModel.class);
         charactersViewModel.getAllCharacters();
         charactersViewModel.getListCharacters().observe(getViewLifecycleOwner(), new Observer<List<GotCharacterViewItem>>() {
             @Override

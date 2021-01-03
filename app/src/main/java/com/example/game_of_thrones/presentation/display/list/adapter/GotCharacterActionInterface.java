@@ -1,5 +1,5 @@
 package com.example.game_of_thrones.presentation.display.list.adapter;
 
-public interface GotActionInterface {
+public interface GotCharacterActionInterface {
     void onClick(int id);
 }

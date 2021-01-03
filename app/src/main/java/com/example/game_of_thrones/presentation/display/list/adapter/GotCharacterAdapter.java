@@ -16,12 +16,12 @@ import java.util.List;
 
 public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapter.GotCharacterViewHolder> {
 
-    private GotActionInterface gotActionInterface;
+    private GotCharacterActionInterface gotCharacterActionInterface;
     private List<GotCharacterViewItem> gotCharacterViewItemList;
 
-    public GotCharacterAdapter(GotActionInterface gotActionInterface){
+    public GotCharacterAdapter(GotCharacterActionInterface gotCharacterActionInterface){
         gotCharacterViewItemList = new ArrayList<>();
-        this.gotActionInterface = gotActionInterface;
+        this.gotCharacterActionInterface = gotCharacterActionInterface;
     }
 
     public void bindViewModels(List<GotCharacterViewItem> gotCharacterViewItemList){
@@ -35,7 +35,7 @@ public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapte
     public GotCharacterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.got_character_img, viewGroup, false);
-        GotCharacterViewHolder gotCharacterViewHolder = new GotCharacterViewHolder(view, gotActionInterface);
+        GotCharacterViewHolder gotCharacterViewHolder = new GotCharacterViewHolder(view, gotCharacterActionInterface);
         return gotCharacterViewHolder;
     }
 
@@ -52,14 +52,14 @@ public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapte
     public static class GotCharacterViewHolder extends RecyclerView.ViewHolder {
 
         private View gotView;
-        private GotActionInterface gotActionInterface;
+        private GotCharacterActionInterface gotCharacterActionInterface;
         private ImageButton gotCharacterImgBtn;
         private GotCharacterViewItem gotCharacterInformationViewItem;
 
-        public GotCharacterViewHolder(View gotView, GotActionInterface gotActionInterface) {
+        public GotCharacterViewHolder(View gotView, GotCharacterActionInterface gotCharacterActionInterface) {
             super(gotView);
             this.gotView = gotView;
-            this.gotActionInterface = gotActionInterface;
+            this.gotCharacterActionInterface = gotCharacterActionInterface;
             gotCharacterImgBtn = gotView.findViewById(R.id.gotCharacter_imgView);
             setupListener();
         }
@@ -68,7 +68,7 @@ public class GotCharacterAdapter extends RecyclerView.Adapter<GotCharacterAdapte
             gotCharacterImgBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    gotActionInterface.onClick(gotCharacterInformationViewItem.getId());
+                    gotCharacterActionInterface.onClick(gotCharacterInformationViewItem.getId());
                 }
             });
         }

@@ -18,7 +18,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
-public class GotViewModel extends ViewModel{
+public class GotCharacterViewModel extends ViewModel{
 
     private CharacterToGotViewModelMapper characterToGotViewModelMapper;
     private CharacterInformationToGotCharacterViewItem characterInformationToGotCharacterViewItem;
@@ -26,7 +26,7 @@ public class GotViewModel extends ViewModel{
     private CompositeDisposable compositeDisposable;
 
 
-    public GotViewModel(GotCharacterDisplayRepository gotCharacterDisplayRepository){
+    public GotCharacterViewModel(GotCharacterDisplayRepository gotCharacterDisplayRepository){
         this.gotCharacterDisplayRepository = gotCharacterDisplayRepository;
         this.compositeDisposable = new CompositeDisposable();
         this.characterToGotViewModelMapper = new CharacterToGotViewModelMapper();

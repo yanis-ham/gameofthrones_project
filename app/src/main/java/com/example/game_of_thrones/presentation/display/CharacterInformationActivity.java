@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.game_of_thrones.R;
 import com.example.game_of_thrones.data.di.FakeDependencyInjection;
 import com.example.game_of_thrones.presentation.display.list.adapter.GotCharacterInformationViewItem;
-import com.example.game_of_thrones.presentation.viewmodel.GotViewModel;
+import com.example.game_of_thrones.presentation.viewmodel.GotCharacterViewModel;
 
 public class CharacterInformationActivity extends AppCompatActivity {
     private int id;
@@ -23,7 +23,7 @@ public class CharacterInformationActivity extends AppCompatActivity {
     private TextView title;
     private TextView family;
     private ImageView gotCharacterImg;
-    private GotViewModel gotViewModel;
+    private GotCharacterViewModel gotCharacterViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,15 +37,15 @@ public class CharacterInformationActivity extends AppCompatActivity {
     }
 
     private void registerViewModel() {
-        gotViewModel = new ViewModelProvider(this, FakeDependencyInjection.getViewModelFactory()).get(GotViewModel.class);
+        gotCharacterViewModel = new ViewModelProvider(this, FakeDependencyInjection.getViewModelFactory()).get(GotCharacterViewModel.class);
 
-        gotViewModel.getCharactersInfo().observe(this, new Observer<GotCharacterInformationViewItem>() {
+        gotCharacterViewModel.getCharactersInfo().observe(this, new Observer<GotCharacterInformationViewItem>() {
             @Override
             public void onChanged(GotCharacterInformationViewItem gotCharacterInformationViewItem) {
                 setLayout(gotCharacterInformationViewItem);
             }
         });
-        gotViewModel.getCharacterById(id);
+        gotCharacterViewModel.getCharacterById(id);
 
     }
 

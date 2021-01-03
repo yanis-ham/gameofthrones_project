@@ -2,9 +2,14 @@ package com.example.game_of_thrones.data.di;
 
 import android.content.Context;
 
+import androidx.room.Room;
+
 import com.example.game_of_thrones.data.api.GotCharacterDisplayService;
+import com.example.game_of_thrones.data.api.model.GotCharacter;
+import com.example.game_of_thrones.data.db.GotCharacterDatabase;
 import com.example.game_of_thrones.data.repository.GotCharacterDisplayDataRepository;
 import com.example.game_of_thrones.data.repository.GotCharacterDisplayRepository;
+import com.example.game_of_thrones.data.repository.local.GotCharacterDisplayLocalDataSource;
 import com.example.game_of_thrones.data.repository.remote.GotCharacterDisplayRemoteDataSource;
 import com.example.game_of_thrones.presentation.viewmodel.ViewModelFactory;
 import com.google.gson.Gson;
@@ -23,6 +28,7 @@ public class FakeDependencyInjection {
     private static ViewModelFactory viewModelFactory;
     private static GotCharacterDisplayService gotCharacterDisplayService;
     private static GotCharacterDisplayRepository characterDisplayRepository;
+    private static GotCharacterDatabase gotCharacterDatabase;
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
@@ -70,10 +76,19 @@ public class FakeDependencyInjection {
     public static GotCharacterDisplayRepository getCharacterDisplayRepository() {
         if (characterDisplayRepository == null) {
             characterDisplayRepository = new GotCharacterDisplayDataRepository(
-                    new GotCharacterDisplayRemoteDataSource(getGotCharacterDisplayService())
+                    new GotCharacterDisplayRemoteDataSource(getGotCharacterDisplayService()),
+                    new GotCharacterDisplayLocalDataSource(getGotCharacterDatabase())
             );
         }
         return characterDisplayRepository;
+    }
+
+    public static GotCharacterDatabase getGotCharacterDatabase() {
+        if (gotCharacterDatabase == null) {
+            gotCharacterDatabase = Room.databaseBuilder(applicationContext,
+                    GotCharacterDatabase.class, "gotCharacter-database").build();
+        }
+        return gotCharacterDatabase;
     }
 
 }
